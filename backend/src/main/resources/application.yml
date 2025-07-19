@@ -31,6 +31,13 @@ spring:
     time-zone: Asia/Shanghai
     serialization:
       write-dates-as-timestamps: false
+  
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+      enabled: true
 
 # 日志配置
 logging:
@@ -78,3 +85,19 @@ logging:
   level:
     com.personalnote: INFO
     org.springframework.web: WARN
+
+# 文件上传配置
+file:
+  upload:
+    upload-path: uploads/
+    thumbnail-path: uploads/thumbnails/
+    max-file-size: 52428800  # 50MB
+    max-request-size: 104857600  # 100MB
+    allowed-types:
+      - image/jpeg
+      - image/png 
+      - image/gif
+      - image/webp
+      - application/pdf
+      - text/plain
+      - text/markdown
