@@ -101,3 +101,17 @@ file:
       - application/pdf
       - text/plain
       - text/markdown
+
+# AI配置
+ai:
+  openai:
+    api-key: ${OPENAI_API_KEY:}
+    base-url: ${OPENAI_BASE_URL:https://api.openai.com/v1}
+    max-tokens: 4096
+    temperature: 0.7
+    timeout: 30000  # 30秒
+  default-model: gpt-3.5-turbo
+  enabled: true
+  rate-limit:
+    requests-per-minute: 60
+    requests-per-hour: 1000
