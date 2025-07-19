@@ -1,0 +1,145 @@
+// 全局样式变量
+:root {
+  --sidebar-width: 260px;
+  --header-height: 60px;
+  --border-color: #e4e7ed;
+  --text-color-primary: #303133;
+  --text-color-regular: #606266;
+  --text-color-secondary: #909399;
+  --bg-color-primary: #ffffff;
+  --bg-color-secondary: #f5f7fa;
+}
+
+// 暗色主题变量
+html.dark {
+  --border-color: #4c4d4f;
+  --text-color-primary: #e5eaf3;
+  --text-color-regular: #cfd3dc;
+  --text-color-secondary: #a3a6ad;
+  --bg-color-primary: #1d1e1f;
+  --bg-color-secondary: #25262a;
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c0c4cc;
+}
+
+// 布局样式
+.layout-container {
+  display: flex;
+  height: 100vh;
+  background: var(--bg-color-primary);
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--bg-color-secondary);
+  border-right: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content-header {
+  height: var(--header-height);
+  background: var(--bg-color-primary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.content-body {
+  flex: 1;
+  overflow: hidden;
+  background: var(--bg-color-primary);
+}
+
+// 工具类
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.p-4 {
+  padding: 16px;
+}
+
+.m-4 {
+  margin: 16px;
+}
+
+.text-sm {
+  font-size: 14px;
+}
+
+.text-xs {
+  font-size: 12px;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// 动画
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// 响应式
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 1000;
+    transform: translateX(-100%);
+    
+    &.show {
+      transform: translateX(0);
+    }
+  }
+  
+  .main-content {
+    width: 100%;
+  }
+}
